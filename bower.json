@@ -1,0 +1,6 @@
+{
+  "name": "ember-chartjs-demo",
+  "dependencies": {
+    "chartjs": "2.1.6"
+  }
+}

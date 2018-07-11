@@ -1,0 +1,25 @@
+<div class="chartSize">
+    <h2>Line Chart</h2>
+    {{ember-chart type='line' data=model.lineData width=300 height=300}}
+</div>
+<div class="chartSize">
+    <h2>Bar Chart</h2>
+    {{ember-chart type='bar' data=model.barData width=300 height=300}}
+</div>
+<div class="chartSize">
+    <h2>PolarArea Chart</h2>
+    {{ember-chart type='polarArea' data=model.polarRadarData width=300 height=300}}
+</div>
+<div class="chartSize">
+    <h2>Radar Chart</h2>
+    {{ember-chart type='radar' data=model.polarRadarData width=300 height=300}}
+</div>
+<div class="chartSize">
+    <h2>Pie Chart</h2>
+    {{ember-chart type='pie' data=model.pieData options=model.options width=300 height=300}}
+</div>
+<div class="chartSize">
+    <h2>Doughnut Chart</h2>
+    {{ember-chart type='doughnut' data=model.doughnutData options=model.options width=300 height=300}}
+</div>
+{{outlet}}
