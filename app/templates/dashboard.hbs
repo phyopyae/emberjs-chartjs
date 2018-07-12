@@ -1,0 +1,65 @@
+{{outlet}}
+<div>
+    <div>
+        <h2>Dashboard</h2>
+    </div>
+    <div class="chartArea">
+        <p class="text-center">Create Chart goes here!</p>
+        <hr>
+        {{#if data}}
+        <h4 class="text-center">{{chartName}}</h4>
+        {{ember-chart type=selectedChart.type data=data width=300 height=500}}
+        {{/if}}
+    </div>
+    <div class="chartSetting">
+        {{#power-select options=charts searchEnabled=false selected=selectedChart onchange=(action "changeChart") as |chart|}} {{chart.name}}
+        {{/power-select}} 
+        {{#if selectedChart}}
+        <div>
+            <p class="settingField">Chart Name</p>
+            {{input type="text" placeholder="Chart Name" value=chartName}}
+        </div>
+        {{!-- To add in next version --}}
+        {{!-- <div>
+            <p class="settingField">File Upload</p>
+            <input multiple="true" id="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" type="file" />
+        </div> --}}
+        <div>
+            <p class="settingField">JSON Data</p>
+            {{textarea placeholder="Please fill your data with JSON Format." value=jsonData cols="60" rows="12"}}
+        </div>
+            <button id="updateData" {{action 'create' jsonData chartName}}>
+            {{#if data}}
+                Update 
+            {{else}} 
+                Create
+            {{/if}}
+            </button>
+            <div>
+                <p>Sample JSON format</p>
+                <pre>
+                    <code>
+{
+    "labels": ["Monday","Tuesday","Wednesday","Thursday"],
+    "datasets":[
+        {
+            "label":"apples",
+            "data":[12,19,3,17],
+            "borderColor":"#3e95cd"
+        },{
+            "label":"oranges",
+            "data":[2,29,5,5],
+            "borderColor":"#8e5ea2"
+        },{
+            "label":"grapes",
+            "data":[5,9,15,15],
+            "borderColor":"#3cba9f"
+        }
+    ]
+}
+                    </code>
+                </pre>
+            </div>
+        {{/if}}
+    </div>
+</div>
